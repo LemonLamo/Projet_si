@@ -29,7 +29,19 @@ public class Evaluator extends User {
         return assignedSubmissions.contains(submission);
     }
 
+    public String getActivityDomain() {
+        return activityDomain;
+    }
 
+    public void setActivityDomain(String activityDomain) {
+        this.activityDomain = activityDomain;
+    }
 
+    public Set<Submission> getAssignedSubmissions() {
+        return assignedSubmissions;
+    }
 
+    public void setAssignedSubmissions(Set<com.example.conference.model.Submission> assignedSubmissions) {
+        this.assignedSubmissions = assignedSubmissions;
+    }
 }

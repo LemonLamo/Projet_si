@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -49,6 +50,22 @@ public class Editor extends User {
         if (submission.getEvaluators().contains(evaluator)) {
             submission.removeEvaluator(evaluator);
         }
+    }
+
+    public String getActivityDomain() {
+        return activityDomain;
+    }
+
+    public void setActivityDomain(java.lang.String activityDomain) {
+        this.activityDomain = activityDomain;
+    }
+
+    public java.util.Set<Conference> getConferences() {
+        return conferences;
+    }
+
+    public void setConferences(java.util.Set<Conference> conferences) {
+        this.conferences = conferences;
     }
 }
 

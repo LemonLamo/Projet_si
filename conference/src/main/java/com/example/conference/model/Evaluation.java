@@ -44,4 +44,56 @@ public class Evaluation {
         }
         this.score = score;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(java.lang.Long id) {
+        this.id = id;
+    }
+
+    public float getScore() {
+        return score;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(java.lang.String comments) {
+        this.comments = comments;
+    }
+
+    public EvaluationState getState() {
+        return state;
+    }
+
+    public void setState(EvaluationState state) {
+        this.state = state;
+    }
+
+    public Submission getSubmission() {
+        return submission;
+    }
+
+    public void setSubmission(com.example.conference.model.Submission submission) {
+        this.submission = submission;
+    }
+
+    public Evaluator getEvaluator() {
+        return evaluator;
+    }
+
+    public void setEvaluator(Evaluator evaluator) {
+        this.evaluator = evaluator;
+    }
+
+    public Editor getEditor() {
+        return editor;
+    }
+
+    public void setEditor(Editor editor) {
+        this.editor = editor;
+    }
 }
