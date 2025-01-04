@@ -5,20 +5,32 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @ToString(callSuper = true)
 @Entity
 public class Editor extends User {
+
     private String activityDomain;
 
-    private String publishingHouseName;
+    // One-to-Many relationship with Conference
+    @OneToMany(mappedBy = "editor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Conference> conferences = new HashSet<>();
 
-    private int contactNumber;
+    // Utility method to add a conference
+    public void addConference(Conference conference) {
+        conferences.add(conference);
+        conference.setEditor(this);
+    }
 
-    public void assignSubmissionToEvaluator(Submission submission, Evaluator evaluator) {
-        //logic for assigning a submission later...
-        System.out.println("Assigning submission to evaluator...");
+    // Utility method to remove a conference
+    public void removeConference(Conference conference) {
+        conferences.remove(conference);
+        conference.setEditor(null);
     }
 }
+
 
