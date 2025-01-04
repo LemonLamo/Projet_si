@@ -14,6 +14,9 @@ import java.util.Set;
 @Entity
 public class Author extends User {
 
+    //getters and setters
+    @Getter
+    @Setter
     private String writingDomain;
 
     // Many-to-Many relationship with Submission
@@ -24,5 +27,6 @@ public class Author extends User {
     public String getAuthorInfo() {
         return String.format("Author: %s , Writing Domain: %s", getName(), writingDomain);
     }
+
 }
 
