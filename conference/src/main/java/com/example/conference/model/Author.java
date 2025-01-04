@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -28,5 +29,20 @@ public class Author extends User {
         return String.format("Author: %s , Writing Domain: %s", getName(), writingDomain);
     }
 
+    public String getWritingDomain() {
+        return writingDomain;
+    }
+
+    public void setWritingDomain(java.lang.String writingDomain) {
+        this.writingDomain = writingDomain;
+    }
+
+    public java.util.Set<Submission> getSubmissions() {
+        return submissions;
+    }
+
+    public void setSubmissions(java.util.Set<Submission> submissions) {
+        this.submissions = submissions;
+    }
 }
 

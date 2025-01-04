@@ -7,6 +7,8 @@ import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Set;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -74,6 +76,62 @@ public class Submission {
     //utility method to remove an evaluator
     public void removeEvaluator(Evaluator evaluator) {
         evaluators.remove(evaluator);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(java.lang.Long id) {
+        this.id = id;
+    }
+
+    public String getArticleTitle() {
+        return articleTitle;
+    }
+
+    public void setArticleTitle(java.lang.String articleTitle) {
+        this.articleTitle = articleTitle;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(java.lang.String summary) {
+        this.summary = summary;
+    }
+
+    public String getPdfDocumentPath() {
+        return pdfDocumentPath;
+    }
+
+    public void setPdfDocumentPath(java.lang.String pdfDocumentPath) {
+        this.pdfDocumentPath = pdfDocumentPath;
+    }
+
+    public java.util.Set<Author> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(java.util.Set<Author> authors) {
+        this.authors = authors;
+    }
+
+    public Conference getConference() {
+        return conference;
+    }
+
+    public void setConference(Conference conference) {
+        this.conference = conference;
+    }
+
+    public java.util.Set<Evaluator> getEvaluators() {
+        return evaluators;
+    }
+
+    public void setEvaluators(java.util.Set<Evaluator> evaluators) {
+        this.evaluators = evaluators;
     }
 }
 
