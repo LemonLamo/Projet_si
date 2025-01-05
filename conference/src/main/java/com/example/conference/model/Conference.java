@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.List;
 
+
 @Getter
 @Setter
 @ToString
@@ -45,64 +46,32 @@ public class Conference {
         return state == ConferenceState.OPEN_FOR_SUBMISSIONS;
     }
 
-    public Long getId() {
-        return id;
-    }
-
     public void setId(java.lang.Long id) {
         this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
     }
 
     public void setTitle(java.lang.String title) {
         this.title = title;
     }
 
-    public String getTheme() {
-        return theme;
-    }
-
     public void setTheme(java.lang.String theme) {
         this.theme = theme;
-    }
-
-    public java.time.LocalDate getStartDate() {
-        return startDate;
     }
 
     public void setStartDate(java.time.LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public java.time.LocalDate getEndDate() {
-        return endDate;
-    }
-
     public void setEndDate(java.time.LocalDate endDate) {
         this.endDate = endDate;
-    }
-
-    public ConferenceState getState() {
-        return state;
     }
 
     public void setState(ConferenceState state) {
         this.state = state;
     }
 
-    public Editor getEditor() {
-        return editor;
-    }
-
     public void setEditor(Editor editor) {
         this.editor = editor;
-    }
-
-    public java.util.List<Submission> getSubmissions() {
-        return submissions;
     }
 
     public void setSubmissions(java.util.List<Submission> submissions) {

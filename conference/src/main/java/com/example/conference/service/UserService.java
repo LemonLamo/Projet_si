@@ -63,12 +63,12 @@ public class UserService {
 
     // Retrieve users by name (case-insensitive)
     public List<User> getUsersByName(String name) {
-        return userRepository.findByNameContainingIgnoreCase(name);
+        return userRepository.findByName(name);
     }
 
     // Retrieve users by surname (case-insensitive)
     public List<User> getUsersBySurname(String surname) {
-        return userRepository.findBySurnameContainingIgnoreCase(surname);
+        return userRepository.findBySurname(surname);
     }
 
 }

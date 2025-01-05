@@ -82,10 +82,15 @@ public class ConferenceService {
         return conferenceRepository.findConferencesStartingAfter(date);
     }
 
+    public List<Conference> getConferencesByState(ConferenceState state) {
+        return conferenceRepository.findByState(state);
+    }
+
     // Check if a conference is open for submissions
     public boolean isConferenceOpenForSubmissions(Long id) {
         Conference conference = getConferenceById(id);
         return conference.isOpenForSubmissions();
     }
+
 }
 

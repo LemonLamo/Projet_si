@@ -8,7 +8,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@MappedSuperclass // This allows other classes to inherit these attributes without creating a separate table
+@MappedSuperclass
+// This allows other classes to inherit these attributes without creating a separate table
 public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

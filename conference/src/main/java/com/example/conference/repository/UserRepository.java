@@ -11,10 +11,10 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     // Find users by name (case-insensitive)
-    List<User> findByNameContainingIgnoreCase(String name);
+    List<User> findByName(String name);
 
     // Find users by surname (case-insensitive)
-    List<User> findBySurnameContainingIgnoreCase(String surname);
+    List<User> findBySurname(String surname);
 
     Optional<User> findByEmail(String email);
 }
