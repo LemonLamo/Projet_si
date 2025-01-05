@@ -17,16 +17,16 @@ public abstract class User {
 
     @Getter
     @Setter
-    @Column(nullable = false)
+    @Column
     private String name;
 
-    @Column(nullable = false)
+    @Column
     private String surname;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String email;
 
-    @Column(nullable = false)
+    @Column
     private int yearOfBirth;
 
     public Long getId() {
