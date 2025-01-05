@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="236116e8-9e3c-4a83-9010-bbdc797f0c28" name="conferencedb Mapping">
+      <data-sources db="0dc02964-f3c2-49a5-b1cb-1f15db5e0ad3" ddl="30485151-8bd7-4612-bc58-e44d008a7861" />
+    </mapping>
+  </component>
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="30485151-8bd7-4612-bc58-e44d008a7861" />
+          <option name="name" value="conferencedb (DDL)" />
+          <option name="dbmsName" value="H2" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/conference/src/main/resources/data.sql" />
+            </array>
+          </option>
+          <option name="outLayout" value="File per object by schema.groovy" />
+        </State>
+      </list>
+    </option>
+  </component>
+</project>

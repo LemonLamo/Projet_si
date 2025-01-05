@@ -15,8 +15,6 @@ import java.util.Set;
 @ToString(callSuper = true)
 public class Editor extends User {
 
-    @Getter
-    @Setter
     private String activityDomain;
 
     // One-to-Many relationship with Conference

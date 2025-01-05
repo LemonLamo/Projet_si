@@ -6,7 +6,8 @@ import com.example.conference.model.Evaluator;
 import com.example.conference.model.Submission;
 import com.example.conference.repository.ConferenceRepository;
 import com.example.conference.repository.SubmissionRepository;
-import com.example.conference.repository.UserRepository;
+import com.example.conference.repository.AuthorRepository;
+import com.example.conference.repository.EvaluatorRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,16 +15,19 @@ import java.util.List;
 @Service
 public class SubmissionService {
 
-    private final SubmissionRepository submissionRepository;
-    private final UserRepository userRepository; // Shared repository for Author and Evaluator
-    private final ConferenceRepository conferenceRepository;
+    private final SubmissionRepository submissionRepository; // Repository for Submission
+    private final ConferenceRepository conferenceRepository; // Repository for Conference
+    private final AuthorRepository authorRepository; // Repository for Author
+    private final EvaluatorRepository evaluatorRepository; // Repository for Evaluator
 
     public SubmissionService(SubmissionRepository submissionRepository,
-                             UserRepository userRepository,
-                             ConferenceRepository conferenceRepository) {
+                             ConferenceRepository conferenceRepository,
+                             AuthorRepository authorRepository,
+                             EvaluatorRepository evaluatorRepository) {
         this.submissionRepository = submissionRepository;
-        this.userRepository = userRepository;
         this.conferenceRepository = conferenceRepository;
+        this.authorRepository = authorRepository;
+        this.evaluatorRepository = evaluatorRepository;
     }
 
     // Retrieve all submissions
@@ -39,7 +43,7 @@ public class SubmissionService {
 
     // Create a new submission and link it to an author and a conference
     public Submission createSubmission(Long authorId, Long conferenceId, Submission submission) {
-        Author author = (Author) userRepository.findById(authorId)
+        Author author = authorRepository.findById(authorId)
                 .orElseThrow(() -> new RuntimeException("Author not found with ID: " + authorId));
         Conference conference = conferenceRepository.findById(conferenceId)
                 .orElseThrow(() -> new RuntimeException("Conference not found with ID: " + conferenceId));
@@ -57,7 +61,7 @@ public class SubmissionService {
     // Assign an evaluator to a submission
     public Submission assignEvaluatorToSubmission(Long submissionId, Long evaluatorId) {
         Submission submission = getSubmissionById(submissionId);
-        Evaluator evaluator = (Evaluator) userRepository.findById(evaluatorId)
+        Evaluator evaluator = evaluatorRepository.findById(evaluatorId)
                 .orElseThrow(() -> new RuntimeException("Evaluator not found with ID: " + evaluatorId));
 
         // Link the evaluator to the submission
@@ -105,7 +109,7 @@ public class SubmissionService {
     // Add an author to an existing submission
     public Submission addAuthorToSubmission(Long submissionId, Long authorId) {
         Submission submission = getSubmissionById(submissionId);
-        Author author = (Author) userRepository.findById(authorId)
+        Author author = authorRepository.findById(authorId)
                 .orElseThrow(() -> new RuntimeException("Author not found with ID: " + authorId));
 
         // Link the author to the submission
