@@ -77,5 +77,37 @@ public class Conference {
     public void setSubmissions(java.util.List<Submission> submissions) {
         this.submissions = submissions;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getTheme() {
+        return theme;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public ConferenceState getState() {
+        return state;
+    }
+
+    public Editor getEditor() {
+        return editor;
+    }
+
+    public List<Submission> getSubmissions() {
+        return submissions;
+    }
 }
 
