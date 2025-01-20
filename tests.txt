@@ -1,0 +1,55 @@
+###
+@id = 1
+GET http://localhost:8080/api/conferences/{{id}}/is-open
+
+
+###
+GET http://localhost:8080/api/evaluations
+Content-Type: application/json
+
+###
+GET http://localhost:8080/api/conferences
+Content-Type: application/json
+
+###
+GET http://localhost:8080/api/authors/{{id}}?
+    writingDomain={{$random.alphanumeric(8)}}&
+    name={{$random.alphanumeric(8)}}
+###
+
+@authorId = 4
+@submissionId = 1
+@evaluatorId = 1
+
+###
+PUT http://localhost:8080/api/evaluations/{{id}}
+Content-Type: application/json
+
+{
+  "id": 1,
+  "score": 5,
+  "comments": "good one",
+  "state": "ACCEPTED"
+}
+
+<> 2025-01-20T011208.415.json
+<> 2025-01-20T011127.415.json
+
+###
+GET http://localhost:8080/api/evaluations/{{id}}
+Content-Type: application/json
+
+<> 2025-01-20T011121.200.json
+
+###
+DELETE http://localhost:8080/api/evaluations/{{id}}
+Content-Type: application/json
+
+###
+DELETE http://localhost:8080/api/evaluators/{{evaluatorId}}/submissions/{{submissionId}}
+
+<> 2025-01-20T012014.200.json
+
+###
+POST http://localhost:8080/api/authors/{{authorId}}/submissions/{{submissionId}}
+Content-Type: application/x-www-form-urlencoded
