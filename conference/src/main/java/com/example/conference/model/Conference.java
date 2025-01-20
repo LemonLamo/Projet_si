@@ -1,5 +1,7 @@
 package com.example.conference.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,10 +38,12 @@ public class Conference {
     // Many-to-One relationship with Editor
     @ManyToOne
     @JoinColumn(name = "editor_id", nullable = false)
+    @JsonBackReference
     private Editor editor;
 
     // One-to-Many relationship with Submission
     @OneToMany(mappedBy = "conference", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Submission> submissions;
 
     public boolean isOpenForSubmissions() {

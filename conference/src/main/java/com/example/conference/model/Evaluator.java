@@ -1,5 +1,6 @@
 package com.example.conference.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,8 +18,9 @@ public class Evaluator extends User {
 
     // Many-to-Many relationship with Submission through the assignments via Editor
     @ManyToMany
+    @JsonManagedReference
     @JoinTable(
-            name = "evaluator_submission",
+            name = "submission_evaluator",
             joinColumns = @JoinColumn(name = "evaluator_id"),
             inverseJoinColumns = @JoinColumn(name = "submission_id")
     )

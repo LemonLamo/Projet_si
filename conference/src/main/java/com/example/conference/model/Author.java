@@ -1,5 +1,6 @@
 package com.example.conference.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +23,7 @@ public class Author extends User {
 
     // Many-to-Many relationship with Submission
     @ManyToMany(mappedBy = "authors")
+    @JsonManagedReference
     private Set<Submission> submissions = new HashSet<>();
 
     // Utility method to get author information
