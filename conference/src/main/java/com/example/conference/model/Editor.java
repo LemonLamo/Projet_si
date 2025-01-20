@@ -1,5 +1,6 @@
 package com.example.conference.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,6 +20,7 @@ public class Editor extends User {
 
     // One-to-Many relationship with Conference
     @OneToMany(mappedBy = "editor", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private Set<Conference> conferences = new HashSet<>();
 
     // Utility method to add a conference

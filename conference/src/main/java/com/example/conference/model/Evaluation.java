@@ -1,5 +1,6 @@
 package com.example.conference.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,13 +25,16 @@ public class Evaluation {
     private EvaluationState state; // State of the evaluation (Accepted, Rejected, or In Revision)
 
     @ManyToOne(optional = false)
+    @JsonBackReference
     private Submission submission;
 
     @ManyToOne(optional = false)
+    @JsonBackReference
     private Evaluator evaluator;
 
     // Reference to the editor who can view the evaluation
     @ManyToOne(optional = false)
+    @JsonBackReference
     private Editor editor;
 
     public String getEvaluationDetails() {

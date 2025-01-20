@@ -1,5 +1,6 @@
 package com.example.conference.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,6 +32,7 @@ public class Submission {
 
     // Many-to-Many relationship with Author
     @ManyToMany
+    @JsonBackReference
     @JoinTable(
             name = "submission_author",
             joinColumns = @JoinColumn(name = "submission_id"),
@@ -57,11 +59,13 @@ public class Submission {
 
     // Many-to-One relationship with Conference
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "conference_id", nullable = false)
     private Conference conference;
 
     // Many-to-Many relationship with Evaluator
     @ManyToMany
+    @JsonBackReference
     @JoinTable(
             name = "submission_evaluator",
             joinColumns = @JoinColumn(name = "submission_id"),
