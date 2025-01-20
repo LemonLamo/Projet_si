@@ -1,20 +1,29 @@
 ###
-@id = 1
+@id = 0
 GET http://localhost:8080/api/conferences/{{id}}/is-open
+
+<> 2025-01-21T001939.200.json
+<> 2025-01-21T001911.500.json
 
 
 ###
 GET http://localhost:8080/api/evaluations
 Content-Type: application/json
 
+<> 2025-01-21T001949.200.json
+
 ###
 GET http://localhost:8080/api/conferences
 Content-Type: application/json
+
+<> 2025-01-21T001956.200.json
 
 ###
 GET http://localhost:8080/api/authors/{{id}}?
     writingDomain={{$random.alphanumeric(8)}}&
     name={{$random.alphanumeric(8)}}
+
+<> 2025-01-21T002004.200.json
 ###
 
 @authorId = 4
@@ -22,7 +31,7 @@ GET http://localhost:8080/api/authors/{{id}}?
 @evaluatorId = 1
 
 ###
-PUT http://localhost:8080/api/evaluations/{{id}}
+POST http://localhost:8080/api/evaluations/{{id}}
 Content-Type: application/json
 
 {
@@ -32,6 +41,13 @@ Content-Type: application/json
   "state": "ACCEPTED"
 }
 
+<> 2025-01-21T002656.405.json
+<> 2025-01-21T002538.415.json
+<> 2025-01-21T002530.415.json
+<> 2025-01-21T002514.415.json
+<> 2025-01-21T002133.415.json
+<> 2025-01-21T002049.415.json
+<> 2025-01-21T002014.415.json
 <> 2025-01-20T011208.415.json
 <> 2025-01-20T011127.415.json
 
@@ -39,6 +55,8 @@ Content-Type: application/json
 GET http://localhost:8080/api/evaluations/{{id}}
 Content-Type: application/json
 
+<> 2025-01-21T002557.200.json
+<> 2025-01-21T002546.200.json
 <> 2025-01-20T011121.200.json
 
 ###
@@ -48,8 +66,11 @@ Content-Type: application/json
 ###
 DELETE http://localhost:8080/api/evaluators/{{evaluatorId}}/submissions/{{submissionId}}
 
+<> 2025-01-21T002616.500.json
 <> 2025-01-20T012014.200.json
 
 ###
 POST http://localhost:8080/api/authors/{{authorId}}/submissions/{{submissionId}}
 Content-Type: application/x-www-form-urlencoded
+
+<> 2025-01-21T002620.200.json
